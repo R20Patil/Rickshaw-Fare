@@ -1,0 +1,32 @@
+import java.util.* ; 
+import java.lang.String ; 
+class Rickshaw {
+    public static void main() {
+        Scanner sc = new Scanner(System.in) ; 
+        int time , wait ; 
+        double km , rate; 
+        System.out.println( "Enter the distance covered(in KMs): " )  ;
+        km = sc.nextDouble()  ; 
+        System.out.println("Was your journey ended at midnight? (1)Yes, (2)No \nNote:Extra charges(+25%) may apply for midnight. \n    :Midnight is time counted from 12 A.M to 5 A.M. " ) ; 
+        time  = sc.nextInt() ; 
+        System.out.println("The waiting time during the journey(in seconds): " ) ; 
+        wait = sc.nextInt(); 
+        if( km <= 0 || time <1 || time > 2 || wait < 0 ) {
+            System.out.println("The information entered is invalid. " ) ;
+            System.exit(0) ;
+        }
+        if ( km <= 1.50 ) {
+            rate = 23.00 ; 
+        }
+        else {
+            rate = (km * 15.33) ;
+        } 
+        if( time == 1 ) {
+            rate += (0.25*rate) ; 
+        }
+        if( wait > 0 ) {
+            rate += ( wait * (1.50/60) ) ; 
+        }
+        System.out.println("The total Fare for the journey would be: ₹" + Math.round(rate)) ;
+    }
+}  
